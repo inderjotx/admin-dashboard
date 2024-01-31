@@ -15,9 +15,21 @@ export const MainNav = ({
 
     const routes = [
         {
+            href: `/${path.storeId}/`,
+            isActive: root === `/${path.storeId}`,
+            label: "Overview"
+        },
+
+        {
             href: `/${path.storeId}/settings`,
             isActive: root === `/${path.storeId}/settings`,
             label: "Settings"
+        },
+
+        {
+            href: `/${path.storeId}/billboards`,
+            isActive: root === `/${path.storeId}/billboards`,
+            label: "Billboards"
         }
     ]
 
@@ -32,7 +44,7 @@ export const MainNav = ({
                             href={route.href}
                             className={cn("text-sm  transition-colors hover:text-primary",
                                 route.isActive ? "dark:text-white text-dark " : "text-muted-foreground")}
-                        >Settings</Link>
+                        >{route.label}</Link>
                     )
                 })
             }

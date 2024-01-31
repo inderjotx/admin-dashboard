@@ -21,7 +21,7 @@ export async function PATCH(req: Request, { params }: { params: { storeId: strin
         }
 
 
-        const response = await prismadb.modal.updateMany({
+        const response = await prismadb.store.updateMany({
             where: {
                 id: params.storeId,
                 userId
@@ -60,7 +60,7 @@ export async function DELETE(req: Request, { params }: { params: { storeId: stri
         }
 
 
-        const response = await prismadb.modal.deleteMany({
+        const response = await prismadb.store.deleteMany({
             where: {
                 id: params.storeId,
                 userId

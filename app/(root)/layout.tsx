@@ -19,7 +19,7 @@ export default async function FirstModalLayout(
 
 
 
-    const store = await prismadb.modal.findFirst({
+    const store = await prismadb.store.findFirst({
         where: {
             userId
         }

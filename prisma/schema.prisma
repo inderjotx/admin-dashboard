@@ -10,10 +10,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Modal {
+model Store {
+  id        String      @id @default(uuid())
+  name      String
+  userId    String
+  createAt  DateTime    @default(now())
+  updateAt  DateTime    @updatedAt
+  Billboard Billboard[]
+}
+
+model Billboard {
   id       String   @id @default(uuid())
-  name     String
-  userId   String
+  store    Store    @relation(fields: [storeId], references: [id])
+  storeId  String
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
+
+  @@index([storeId])
 }

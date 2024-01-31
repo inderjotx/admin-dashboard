@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
             return new NextResponse("Name is required parameter", { status: 400 })
         }
 
-        const response = await prismadb.modal.create({
+        const response = await prismadb.store.create({
             data: {
                 name,
                 userId

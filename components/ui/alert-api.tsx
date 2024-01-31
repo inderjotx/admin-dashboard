@@ -1,12 +1,14 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Copy, Server } from "lucide-react"
-import { Badge, badgeVariants } from "./badge"
+import { Badge } from "./badge"
 import { Button } from "./button"
 import toast from "react-hot-toast"
+import { GetOrigin } from "../getorigin"
 
 interface apiAlertProps {
     title: string,
     description: string,
+    storeId: string
     variant: "public" | "admin"
 }
 
@@ -23,12 +25,14 @@ const styleVariant: Record<string, string> = {
 
 
 
-export const ApiAlert = ({ title, description, variant }: apiAlertProps) => {
+export const ApiAlert = ({ title, description, variant, storeId }: apiAlertProps) => {
 
     const handleSelect = () => {
         navigator.clipboard.writeText(description)
         toast.success("Copied to Clipboard")
     }
+
+    const origin = GetOrigin()
 
 
     return (
@@ -38,8 +42,8 @@ export const ApiAlert = ({ title, description, variant }: apiAlertProps) => {
                 <AlertTitle className="text-md" >{title} <Badge variant={styleVariant[variant]} >{textVariant[variant]} </Badge> </AlertTitle>
             </ div>
             <div className="flex justify-between items-center">
-                <AlertDescription className="bg-secondary inline-block  p-1 rounded-md">
-                    {description}
+                <AlertDescription className="bg-secondary  sinline-block font-medium  p-1 rounded-md">
+                    {`${origin}/api/${storeId}`}
                 </AlertDescription>
                 <Button type="button" onClick={handleSelect} size="icon" variant="outline">
                     <Copy className="h-4 w-4" />

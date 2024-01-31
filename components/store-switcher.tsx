@@ -4,7 +4,7 @@ import { useParams, useRouter } from "next/navigation"
 import { useState } from "react"
 import { Check, PlusCircle } from "lucide-react"
 
-import { Modal as Store } from "@prisma/client"
+import { Store } from "@prisma/client"
 import { Popover, PopoverContent } from "./ui/popover"
 import { useStoreModal } from "@/hooks/use-store-modal"
 import { PopoverTrigger } from "@radix-ui/react-popover"

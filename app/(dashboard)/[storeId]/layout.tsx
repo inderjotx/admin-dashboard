@@ -13,7 +13,7 @@ export default async function DashBoardLayout(
         redirect("/sign-in")
     }
 
-    const response = await prismadb.modal.findFirst({
+    const response = await prismadb.store.findFirst({
         where: {
             userId,
             id: params.storeId
@@ -30,7 +30,9 @@ export default async function DashBoardLayout(
     return (
         <div>
             <Navbar />
-            {children}
+            <div className='w-full h-full px-4'>
+                {children}
+            </div>
         </div>
     )
 }

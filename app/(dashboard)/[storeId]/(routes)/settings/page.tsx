@@ -19,7 +19,7 @@ const Page: React.FC<PageProps> = async ({ params }) => {
         redirect("/sign-up")
     }
 
-    const store = await prismadb.modal.findFirst({
+    const store = await prismadb.store.findFirst({
         where: {
             userId,
             id: storedId

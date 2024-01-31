@@ -14,13 +14,13 @@ export const Navbar = async () => {
         redirect("/sign-in")
     }
 
-    const modals = await prismadb.modal.findMany({
+    const modals = await prismadb.store.findMany({
         where: {
             userId
         }
     })
 
-    const stores = await prismadb.modal.findMany({
+    const stores = await prismadb.store.findMany({
         where: {
             userId
         }

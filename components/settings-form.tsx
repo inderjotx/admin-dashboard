@@ -1,7 +1,7 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Modal } from "@prisma/client"
+import { Store } from "@prisma/client"
 import { Trash } from "lucide-react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -131,7 +131,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ store }) => {
                 </Form>
             </div>
             <Separator />
-            <ApiAlert title="Rocket" description="Teri bhan da fuda" variant="public" />
+            <ApiAlert storeId={store.id} title="Rocket" description="Teri bhan da fuda" variant="public" />
         </>
     )
 }
