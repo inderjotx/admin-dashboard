@@ -1,9 +1,19 @@
 
 import React from 'react'
+import { BillboardForm } from '../components/billboard-form'
 
-function page() {
+async function page({ params }: { params: { billboardId: string } }) {
+    const existingBillboard = await prisma?.billboard.findUnique({
+        where: {
+            id: params.billboardId
+        }
+    })
     return (
-        <div>This is a billboard</div>
+        <div className="flex-col">
+            <div className="flex-1 space-y-4 pt-8 p-6">
+                <BillboardForm billboard={existingBillboard || null} />
+            </div>
+        </div>
     )
 }
 

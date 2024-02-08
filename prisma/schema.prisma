@@ -23,6 +23,8 @@ model Billboard {
   id       String   @id @default(uuid())
   store    Store    @relation(fields: [storeId], references: [id])
   storeId  String
+  imageUrl String
+  label    String
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 
